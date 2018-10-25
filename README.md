@@ -21,4 +21,4 @@ Powershell script to download the latest updates for:
   
   
 # How
- The script crawls through the 3rd party websites, looking for specific tags in the html and auto navigates to find the download link. 
+ The script crawls through the 3rd party websites, looking for specific tags in the html and auto navigates to find the download link. Then it will download the files and store them in a folder. Once downloadedm, it will build a CI that can be parsed with another script (working) importing into SCCM or other software delivery 
