@@ -3,14 +3,15 @@
 
 
 Powershell script to download the latest updates for:
-  - Adobe Reader
-  - Adobe Acrobat Reader DC
+  - Adobe Reader 
+  - Adobe Reader Updates (and MUI)
+  - Adobe Acrobat Reader DC Updates (and MUI)
   - Flash Player Active X
   - Flash Player NPAPI (Firefox)
   - Flash Player PPAPI (Chrome)
   - Shockwave (full, slim and msi)
-  - Google Chrome Enterprise Edition
-  - Google Chrome
+  - Google Chrome Enterprise Edition (msi)
+  - Google Chrome Standalone (exe)
   - Firefox (x86)
   - Firefox (x64)
   - Notepadd++
@@ -18,6 +19,8 @@ Powershell script to download the latest updates for:
   - 7Zip (x86) - MSI and EXE
   - VLC Player (x64)
   - VLC Player (x86)
+  - Java 8 (x86)
+  - Java 8 (x64)
   
   
 # How
