@@ -1,0 +1,115 @@
+<job id="Install-Firefox">
+<script language="VBScript" src="..\..\scripts\ZTIUtility.vbs"/>
+<script language="VBScript"> 
+
+' //----------------------------------------------------------------------------
+' //
+' // Solution: Richard's Deployment Script
+' // File: Install-Firefox.wsf
+' //
+' // Purpose: This will install Mozilla Firefox
+' //
+' // Author: Richard Tracy
+' //
+' // Usage: cscript Install-Firefox.wsf [/debug:true]
+' //
+' //----------------------------------------------------------------------------
+
+'//----------------------------------------------------------------------------
+'// Global constant and variable declarations
+'//---------------------------------------------------------------------------- 
+
+Option Explicit 
+
+Dim iRetVal 
+
+'//----------------------------------------------------------------------------
+'// End declarations
+'//---------------------------------------------------------------------------- 
+
+'//----------------------------------------------------------------------------
+'// Main routine
+'//---------------------------------------------------------------------------- 
+
+'On Error Resume Next
+iRetVal = ZTIProcess
+ProcessResults iRetVal
+On Error Goto 0 
+
+'//---------------------------------------------------------------------------
+'//
+'// Function: ZTIProcess()
+'//
+'// Input: None
+'// 
+'// Return: Success - 0
+'// Failure - non-zero
+'//
+'// Purpose: Perform main ZTI processing
+'// 
+'//---------------------------------------------------------------------------
+Function ZTIProcess() 
+
+	Dim sInstallName,sVersion
+	Dim sFile, sInstallerPath,sArch
+	
+	sVersion = "63.0.1"
+	sArch = "x86"
+	
+	sInstallName = "INSTALL - MOZILLA FIREFOX"
+	
+	oLogging.CreateEntry sInstallName & ": Starting Mozilla Firefox installation", LogTypeInfo	
+	
+	If sArch = "x64" then
+		sFile = "Firefox Setup " & sVersion & " (x64).exe"
+	Else
+		sFile = "Firefox Setup " & sVersion & ".exe"
+	End If
+	sInstallerPath = oUtility.ScriptDir & "\source\" & sFile
+
+	If not oFSO.FileExists(sInstallerPath) then
+		oLogging.CreateEntry sInstallName & ": " & sInstallerPath & " was not found, unable to install Mozilla Firefox", LogTypeError
+		ZTIProcess = Failure
+		Exit Function
+	End if
+	
+	'// Disable Zone Checks
+	oEnv("SEE_MASK_NOZONECHECKS") = 1 
+
+	'Install Mozilla Firefox
+	iRetVal = oShell.Run("""" & sInstallerPath & """ -ms", 0, True)
+	
+	if (iRetVal = 0) or (iRetVal = 3010) then
+		ZTIProcess = Success 
+		oLogging.CreateEntry sInstallName & ": Finished Mozilla Firefox installation", LogTypeInfo
+	Else 
+		ZTIProcess = Failure
+		oLogging.CreateEntry sInstallName & ": Installation failed. Return code from command = " & iRetVal, LogTypeError
+	End If
+	
+	'/// Enable Zone Checks
+	oEnv.Remove("SEE_MASK_NOZONECHECKS")
+
+End Function 
+
+
+</script>
+</job>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
