@@ -97,7 +97,7 @@ Function Write-Log{
 ## Variables: Script Name and Script Paths
 [string]$scriptPath = $MyInvocation.MyCommand.Definition
 #Since running script within Powershell ISE doesn't have a $scriptpath...hardcode it
-If(Test-IsISE){$scriptPath = "\\filer.s3i.org\s3isoftware\software\Scripts\PowerShell\MDTAutomation\Update-MDT3rdPartySoftware.ps1"}
+If(Test-IsISE){$scriptPath = "C:\GitHub\Get3rdPartySoftware\Update-MDT3rdPartySoftware.ps1"}
 [string]$scriptName = [IO.Path]::GetFileNameWithoutExtension($scriptPath)
 [string]$scriptFileName = Split-Path -Path $scriptPath -Leaf
 [string]$scriptRoot = Split-Path -Path $scriptPath -Parent
