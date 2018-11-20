@@ -179,7 +179,7 @@ $MDTSettings = [Xml] (Get-Content "$MDTSharePath\Control\Settings.xml")
 
 
 $MDTAppGroupsFile = [Xml] (Get-Content "$MDTSharePath\Control\ApplicationGroups.xml")
-[xml]$MDTApps = Get-Content "$MDTSharePath\Control\Applications.xml" -Credential
+[xml]$MDTApps = Get-Content "$MDTSharePath\Control\Applications.xml" -Credential $MDTCreds
 
 $SoftwareList = Import-Clixml $3rdSoftwareListPath
 
