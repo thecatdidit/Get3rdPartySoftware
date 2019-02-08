@@ -1,5 +1,15 @@
-# 3rdPartySoftware
-06122018 - Updated to v2
+# 3rd Party Software Downloader
+This is a working progress
+
+## Project: 
+  - This is part of my MDT automation Project
+
+## What it does:
+The script crawls through the 3rd party websites, looking for specific tags in the html and auto navigates to find the download link. Then it will download the files and store them in a folder. Once downloadedm, it will build a CI that can be parsed with another script (working) importing into SCCM or other software delivery 
+
+## Works on:
+ - Currently it only these wsf files (https://github.com/PowerShellCrack/MDTDeployApplications) 
+ - Only updates products that are download usign this script (https://github.com/PowerShellCrack/Get3rdPartySoftware)
 
 
 Powershell script to download the latest updates for:
@@ -21,7 +31,3 @@ Powershell script to download the latest updates for:
   - VLC Player (x86)
   - Java 8 (x86)
   - Java 8 (x64)
-  
-  
-# How
- The script crawls through the 3rd party websites, looking for specific tags in the html and auto navigates to find the download link. Then it will download the files and store them in a folder. Once downloadedm, it will build a CI that can be parsed with another script (working) importing into SCCM or other software delivery 
