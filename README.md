@@ -1,5 +1,4 @@
 # 3rd Party Software Downloader
-This is a working progress
 
 ## Project: 
   - This is part of my MDT automation Project
