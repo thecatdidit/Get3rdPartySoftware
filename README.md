@@ -8,7 +8,7 @@ The script crawls through the 3rd party websites, looking for specific tags in t
 
 ## Works on:
  - Currently it only updates wsf files (https://github.com/PowerShellCrack/MDTDeployApplications) 
- NOTE: The wsf file must contain the variable: <b>sVersion</b>
+ - NOTE: The wsf file must contain the variable: <b>sVersion</b>
 
 ## Supports:
  - Adobe Reader 
